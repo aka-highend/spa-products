@@ -15,14 +15,13 @@ function ImageModal({ image, onClose }: Props) {
   }, [onClose]);
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if ((e.target as Element).id === "modal-overlay") {
+    if (e.target === e.currentTarget) {
       onClose();
     }
   };
 
   return (
     <div
-      id="modal-overlay"
       className="fixed inset-0 bg-black bg-opacity-70 z-50 flex justify-center items-center px-4"
       onClick={handleOverlayClick}
     >

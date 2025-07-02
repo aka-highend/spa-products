@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Product } from "@/types/types";
 
@@ -11,6 +11,11 @@ interface Props {
 
 function ProductGrid({ products }: Props) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [isClient, setIsClient] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   return (
     <>
@@ -23,7 +28,7 @@ function ProductGrid({ products }: Props) {
           />
         ))}
       </div>
-      {selectedImage && (
+      {isClient && selectedImage && (
         <ImageModal
           image={selectedImage}
           onClose={() => setSelectedImage(null)}
