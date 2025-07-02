@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import dynamic from "next/dynamic";
 
 import { Product } from "@/types/types";
-
 import ProductCard from "./ProductCard";
-import ImageModal from "./ImageModal";
+
+const ImageModal = dynamic(() => import("./ImageModal"), { ssr: false });
 
 interface Props {
   products: Product[];
@@ -11,11 +12,6 @@ interface Props {
 
 function ProductGrid({ products }: Props) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [isClient, setIsClient] = useState<boolean>(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   return (
     <>
@@ -28,12 +24,14 @@ function ProductGrid({ products }: Props) {
           />
         ))}
       </div>
-      {isClient && selectedImage && (
-        <ImageModal
-          image={selectedImage}
-          onClose={() => setSelectedImage(null)}
-        />
-      )}
+      <div suppressHydrationWarning>
+        {selectedImage && (
+          <ImageModal
+            image={selectedImage}
+            onClose={() => setSelectedImage(null)}
+          />
+        )}
+      </div>
     </>
   );
 }
