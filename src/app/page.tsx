@@ -10,7 +10,7 @@ import ProductGrid from "../components/ProductGrid";
 
 import "../styles/styles.css";
 
-export default function Home() {
+function Home() {
   const apiUrl = "https://www.giovankov.com/api";
 
   const [products, setProducts] = useState<Product[]>([]);
@@ -62,3 +62,5 @@ export default function Home() {
     </>
   );
 }
+
+export default Home;
