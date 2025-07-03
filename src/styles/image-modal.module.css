@@ -1,0 +1,44 @@
+.imageModalContainer {
+  background-color: white;
+  border-radius: 0.75rem; /* rounded-xl */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1); /* shadow-lg */
+  padding: 1rem;
+  width: 100%;
+  max-width: 28rem; /* max-w-md */
+
+  /* responsive override for larger screens (sm:max-w-3xl) */
+  max-height: 90vh;
+  overflow: auto;
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .imageModalContainer {
+    padding: 1.5rem;
+    max-width: 48rem; /* 768px, same as max-w-3xl */
+  }
+}
+
+.modalCloseButton {
+  position: absolute;
+  top: 0.75rem; /* top-3 */
+  right: 1rem; /* right-4 */
+  font-size: 1.25rem; /* text-xl */
+  color: #6b7280; /* gray-500 */
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.modalCloseButton:hover {
+  color: #000000; /* hover:text-black */
+}
+
+.modalImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.5rem;
+}

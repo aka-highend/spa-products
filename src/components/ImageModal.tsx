@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import styles from "../styles/image-modal.module.css";
 
 interface Props {
   image: string;
@@ -15,9 +16,7 @@ function ImageModal({ image, onClose }: Props) {
   }, [onClose]);
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (e.target === e.currentTarget) {
-      onClose();
-    }
+    if (e.target === e.currentTarget) onClose();
   };
 
   return (
@@ -25,18 +24,11 @@ function ImageModal({ image, onClose }: Props) {
       className="fixed inset-0 bg-black bg-opacity-70 z-50 flex justify-center items-center px-4"
       onClick={handleOverlayClick}
     >
-      <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 w-full max-w-md sm:max-w-3xl relative max-h-[90vh] overflow-auto image-modal-container">
-        <button
-          className="absolute top-3 right-4 text-gray-500 hover:text-black text-xl"
-          onClick={onClose}
-        >
+      <div className={styles.imageModalContainer}>
+        <button className={styles.modalCloseButton} onClick={onClose}>
           &times;
         </button>
-        <img
-          src={image}
-          alt="Preview"
-          className="w-full h-auto object-contain rounded"
-        />
+        <img src={image} alt="Preview" className={styles.modalImage} />
       </div>
     </div>
   );
