@@ -25,7 +25,7 @@ function ImageModal({ image, onClose }: Props) {
       className="fixed inset-0 bg-black bg-opacity-70 z-50 flex justify-center items-center px-4"
       onClick={handleOverlayClick}
     >
-      <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 w-full max-w-md sm:max-w-3xl relative max-h-[90vh] overflow-auto">
+      <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 w-full max-w-md sm:max-w-3xl relative max-h-[90vh] overflow-auto image-modal-container">
         <button
           className="absolute top-3 right-4 text-gray-500 hover:text-black text-xl"
           onClick={onClose}

@@ -14,3 +14,16 @@ html,
 body {
   scroll-behavior: smooth;
 }
+
+.image-modal-container {
+  padding: calc(var(--spacing) * 4) !important;
+  max-height: 90vh !important;
+  overflow: auto !important;
+}
+
+@media (min-width: 40rem) {
+  .image-modal-container {
+    padding: calc(var(--spacing) * 6) !important;
+    max-width: var(--container-3xl) !important;
+  }
+}
